@@ -13,10 +13,11 @@ if __name__ == "__main__":
     #   读取图片
     #-------------------------------------#
     img = cv2.imread('img/timg.jpg')
+    temp_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     #-------------------------------------#
     #   将图片传入并检测
     #-------------------------------------#
-    rectangles = model.detectFace(img, threshold)
+    rectangles = model.detectFace(temp_img, threshold)
 
     draw = img.copy()
     for rectangle in rectangles:
