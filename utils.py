@@ -129,7 +129,7 @@ def detect_face_12net(cls_prob,roi,out_side,scale,width,height,threshold):
     return rectangles
     
 #-------------------------------------#
-#   对pnet处理后的结果进行处理
+#   对Rnet处理后的结果进行处理
 #   为了方便理解，我将代码进行了重构
 #   具体代码与视频有较大区别
 #-------------------------------------#
@@ -144,7 +144,7 @@ def filter_face_24net(cls_prob, roi, rectangles, width, height, threshold):
     roi = roi[pick, :]
 
     #-------------------------------------------------------#
-    #   利用Pnet网络的预测结果对粗略预测框进行调整
+    #   利用Rnet网络的预测结果对粗略预测框进行调整
     #   最终获得的rectangles的shape为：[num_box, 4]
     #-------------------------------------------------------#
     w   = np.expand_dims(rectangles[:, 2] - rectangles[:, 0], -1)
