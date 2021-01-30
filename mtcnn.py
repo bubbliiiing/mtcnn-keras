@@ -31,7 +31,6 @@ def create_Pnet(weight_path):
     bbox_regress = Conv2D(4, (1, 1), name='conv4-2')(x)
 
     model = Model([inputs], [classifier, bbox_regress])
-    model.summary()
     model.load_weights(weight_path, by_name=True)
     return model
 
